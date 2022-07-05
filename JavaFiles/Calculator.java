@@ -15,10 +15,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-// THIS CLASS IS DEDICATED FOR GUI AND LISTENERS
+// gui and event handling and listeners
 public class Calculator extends JFrame
 {	
-	// VARIABLES
+	// variables
+	
 	// text field
 	protected static JTextField textField; // where the user will see his input
 	
