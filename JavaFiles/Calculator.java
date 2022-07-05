@@ -85,10 +85,21 @@ public class Calculator extends JFrame
 			// FIRST ROW
 			space = new JPanel();	// added spaces, so we can add the 
 			mainButtons.add(space);	// the backspace button, to the
-			space = new JPanel();	// last position on the right
-			mainButtons.add(space);	// on the first row
+			//space = new JPanel();	// last position on the right
+			//mainButtons.add(space);	// on the first row
 			space = new JPanel();
 			mainButtons.add(space);
+
+			//exponential BUTTOn
+			button = new JButton("^");	// the button for the exponential function
+			button.addActionListener(readLabel);
+			mainButtons.add(button);		
+			button.setToolTipText("Backspace");	
+			button.setFont(button.getFont().deriveFont(15f));
+			
+
+
+
 			// delete button -> /u232b is the unicode for backspace symbol
 			button = new JButton("\u232b");		// adding the button after the 3 empty spaces 
 			button.addActionListener(readLabel);
@@ -98,6 +109,8 @@ public class Calculator extends JFrame
 			// END FIRST ROW			
 			
 			// adding the main buttons
+		
+
 			// clear button
 			button = new JButton("C");
 			button.addActionListener(readLabel);
@@ -117,7 +130,7 @@ public class Calculator extends JFrame
 			button.setToolTipText("Close Parenthese");
 			button.setFont(button.getFont().deriveFont(20f));
 			// division button
-			button = new JButton("�");
+			button = new JButton("/");
 			button.addActionListener(readLabel);
 			mainButtons.add(button);
 			button.setToolTipText("Division");
