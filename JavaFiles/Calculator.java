@@ -85,8 +85,6 @@ public class Calculator extends JFrame
 			// FIRST ROW
 			space = new JPanel();	// added spaces, so we can add the 
 			mainButtons.add(space);	// the backspace button, to the
-			//space = new JPanel();	// last position on the right
-			//mainButtons.add(space);	// on the first row
 			space = new JPanel();
 			mainButtons.add(space);
 
