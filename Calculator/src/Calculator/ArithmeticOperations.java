@@ -97,7 +97,7 @@ public class ArithmeticOperations
 	// POSTFIX algorithm - from INFIX to POSTFIX
 	public static int postfixStack(String postfixArray[], String infixArray[], int infixArrayCount)
 		{ 
-			l_stack postfix =  new l_stack(); // for arithmetic symbols - operators
+			l_stack postfix =  new l_stack(); // stack for performing algortithm
 			int countPostFix = 0; // postfixArray count initialized 
 				
 			for(int i = 0; i <= infixArrayCount; i++) // looping through infix array
@@ -109,10 +109,10 @@ public class ArithmeticOperations
 						{
 							postfix.push("(");
 						}
-					// if ) is found pop all the elements and add them into POSTFIX ARRAY
+					// if ) is found pop all the elements until ( and add them into POSTFIX ARRAY
 					else if(infixArray[i].equals(")"))  	
 						{	
-							try // if there are matching brackets
+							try 
 								{// pop elements until we found the (
 									while(!postfix.peek().equals("("))
 										{

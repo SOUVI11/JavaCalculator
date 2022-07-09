@@ -4,6 +4,10 @@ import java.util.EmptyStackException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+//import Calculator.Calculator;
+
+//import Calculator.ArithmeticOperations;
+
 // THIS CLASS IS DEDICATED FOR BUTTON'S FUNCTIONS
 public class ButtonFunction 
 {
@@ -70,8 +74,22 @@ public class ButtonFunction
 				Calculator.infixArray[Calculator.infixArrayCount].substring(0, Calculator.infixArray[Calculator.infixArrayCount].length()-1);
 			}
 		} // end BACKSPACE 
+
 	
-	// NUMBER BUTTON + DECIMAL POINT
+	// OPERATORS BUTTONS
+	public static void operatorButton()
+		{ //[10,+,5]
+			Calculator.infixArrayCount++;	// Until an OPERATOR is pressed, the number(s) string is added to the previous index.
+			Calculator.infixArray[Calculator.infixArrayCount] = Calculator.buttonLabel;	// The OPERATOR is added to the infixArray.
+			// we add at that index the pressed OPERAND 
+			Calculator.elements = "";
+			// we clear the elements, to add new number or the new operand and not be mixed
+			// with previous digits or operands
+			Calculator.infixArrayCount++;		// we increase the position of the next available index
+		}// end OPERATORS BUTTONS METHOD
+	
+	
+	// NUMBER BUTTON + DECIMAL POINT, OPERANDS BUTTONS
 	public static void operandButton()
 		{
 			Calculator.elements += Calculator.buttonLabel;// adding the button label to the elements(infix) string								
@@ -98,19 +116,6 @@ public class ButtonFunction
 				}
 		}// end NEGATIVE SIGN
 
-	// OPERATORS BUTTONS
-	public static void operatorButton()
-		{ 
-			Calculator.infixArrayCount++;	// Until an OPERATOR is pressed, the number(s) string is added
-											// to the previous index.
-			Calculator.infixArray[Calculator.infixArrayCount] = Calculator.buttonLabel;		
-			// we add at that index the pressed OPERAND 
-			Calculator.elements = "";
-			// we clear the elements, to add new number or the new operand and not be mixed
-			// with previous digits or operands
-			Calculator.infixArrayCount++;		// we increase the position of the next available index
-		}// end OPERATORS BUTTONS METHOD
-	
 	// THE MEMORY STORE
 	public static void memoryStore()
 		{	// Deleting from the TEXTFIELD the label of the button MS

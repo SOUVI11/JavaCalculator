@@ -42,7 +42,7 @@ public class Calculator extends JFrame
 	
 	// listeners
 	protected static String buttonLabel = "";	// labels for the buttons
-	protected static String elements = "";		// where we form the numbers
+	protected static String elements = "";		// where we form the numbers and operators for storing to the array
 	
 	protected static int max = 100; // maximum number of elements input from the user.
 	
@@ -343,7 +343,11 @@ public class Calculator extends JFrame
 					
 					// OPERATORS
 					// DIVISION button
-					if(buttonLabel.equals("�"))
+					if(buttonLabel.equals("/"))
+						ButtonFunction.operatorButton();
+
+					//EXPONENTIAL button
+					else if(buttonLabel.equals("^"))
 						ButtonFunction.operatorButton();
 									
 					// MULTIPLICATION button
