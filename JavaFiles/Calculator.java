@@ -405,7 +405,7 @@ public class Calculator extends JFrame
 								System.out.println(postfixArray[i] + " POSTFIX " + i + "\t");
 						}	
 				}	
-		} // end LISTENTERS
+		} // end of LISTENTERS
 }
 
 
