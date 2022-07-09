@@ -1,7 +1,5 @@
 package Calculator;
 import java.util.EmptyStackException;
-//import java.util.Stack;
-//add the postfix
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -36,7 +34,8 @@ public class ArithmeticOperations
 											case"+": calculation = second + first; break;
 											case"-": calculation = second - first; break;
 											case"*": calculation = second * first; break;
-											case" ": calculation = second / first; break;
+											case"/": calculation = second / first; break;
+											case"^": calculation = Math.pow(second, first); break;
 										}
 									// we push the result back to the stack (other operations may be done)
 									resultStack.push(calculation+""); // adding the "" because calculation is a double and we need to cast to STRING (as the array)
@@ -72,7 +71,8 @@ public class ArithmeticOperations
 				 case"+": return true;
 				 case"-": return true;
 				 case"*": return true;
-				 case" ": return true;
+				 case"/": return true;
+				 case"^": return true;
 				 default: return false;
 			}
 	} // end
@@ -87,8 +87,10 @@ public class ArithmeticOperations
 				priority = 1; // last priority
 			if(operator.equals("+") || operator.equals("-"))
 				priority = 2; // middle priority
-			if(operator.equals("*") || operator.equals(" "))
+			if(operator.equals("*") || operator.equals("/"))
 				priority = 3; // first priority
+			if(operator.equals("^"))
+				priority = 4; // highest priority
 			
 			return priority;
 		} // end
@@ -98,6 +100,7 @@ public class ArithmeticOperations
 	public static int postfixStack(String postfixArray[], String infixArray[], int infixArrayCount)
 		{ 
 			l_stack postfix =  new l_stack(); // stack for performing algortithm
+			//Stack<String> postfix = new Stack<String>(); // stack for performing algortithm
 			int countPostFix = 0; // postfixArray count initialized 
 				
 			for(int i = 0; i <= infixArrayCount; i++) // looping through infix array
@@ -168,7 +171,14 @@ public class ArithmeticOperations
 						postfixArray[countPostFix] = postfix.pop();
 						countPostFix++;
 					}
-				
+
+				//print postfix array
+				System.out.println();
+				for(int i = 0; i < countPostFix; i++)
+					{
+						System.out.print(postfixArray[i] + " ");
+					}
+					System.out.println();
 				return countPostFix;
 			} // end
 	

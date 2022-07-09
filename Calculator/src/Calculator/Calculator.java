@@ -261,7 +261,7 @@ public class Calculator extends JFrame
 			history = new JTextArea();
 			history.setPreferredSize(new Dimension(320,410));
 			history.setEditable(false); // no input from the user, just display the history
-			history.setFont(new Font("Arial", Font.BOLD, 12));
+			history.setFont(new Font("Arial", Font.BOLD, 16));
 			historyLabel= new JLabel("HISTORY:");
 			
 			// panel for the history text area and history label
