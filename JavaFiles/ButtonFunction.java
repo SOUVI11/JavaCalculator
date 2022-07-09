@@ -1,9 +1,3 @@
-// Theodora Tataru C00231174
-// Ana Griga C00231441
-// Year 2
-// Calculator Project
-
-
 package Calculator;
 
 import java.util.EmptyStackException;
@@ -81,14 +75,13 @@ public class ButtonFunction
 	// NUMBER BUTTON + DECIMAL POINT
 	public static void operandButton()
 		{
-			Calculator.elements += Calculator.buttonLabel;								
-			Calculator.infixArray[Calculator.infixArrayCount] = Calculator.elements;	
-																						
+			Calculator.elements += Calculator.buttonLabel;// adding the button label to the elements(infix) string								
+			Calculator.infixArray[Calculator.infixArrayCount] = Calculator.elements;// adding the elements string to the infix array																
 			// the pressed DIGIT is added at the end (append) to the ELEMENTS string
 			// the new String is added into an array
 			// we do not increase the infixArrayCount, as on this position we might append another digit
 		}// end OPERAND BUTTON 
-	
+
 	// NEGATIVE button
 	public static void negativeSign()
 		{
