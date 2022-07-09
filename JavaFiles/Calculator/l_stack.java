@@ -1,6 +1,5 @@
 package Calculator;
 public class l_stack {
-   
     // Define Node of LinkedList 
     private class Node { 
         int data; // node data 
