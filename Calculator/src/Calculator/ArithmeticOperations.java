@@ -2,6 +2,7 @@ package Calculator;
 import java.util.EmptyStackException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
 //import java.util.Stack;
 
 
@@ -17,7 +18,7 @@ public class ArithmeticOperations
 			for(int i = 0; i < postfixArrayCount; i++) // looping through the postFix array
 				{
 					if(postfixArray[i] != null)
-						{	
+						{
 							// if the element is a NUMBER, push it into the stack
 							if(isNumber(postfixArray[i])) 
 								resultStack.push(postfixArray[i]);
@@ -98,7 +99,17 @@ public class ArithmeticOperations
 			
 			return priority;
 		} // end
-	
+
+	///////////////////////////////////
+	public static int factorial(int number)
+		{
+		if (number==0)
+			return 1;
+		else
+			return (number*factorial(number-1));
+			
+		} // end
+		
 	//////////////////////////////////////
 	// POSTFIX algorithm - from INFIX to POSTFIX
 	public static int postfixStack(String postfixArray[], String infixArray[], int infixArrayCount)
@@ -106,9 +117,18 @@ public class ArithmeticOperations
 			l_stack postfix =  new l_stack(); // stack for performing algortithm
 			//Stack<String> postfix = new Stack<String>(); // stack for performing algortithm
 			int countPostFix = 0; // postfixArray count initialized 
-				
-			for(int i = 0; i <= infixArrayCount; i++) // looping through infix array
+			for(int i = 0; i < infixArrayCount; i++)
 				{
+					if(infixArray[i].equals("!")){
+						int number = Integer.parseInt(infixArray[i-1]);
+						int fact = factorial(number);
+						infixArray[i-1] = fact+"";
+						infixArray[i] = "";
+					}
+					
+				}
+			for(int i = 0; i <= infixArrayCount; i++) // looping through infix array
+				{					
 					if(infixArray[i]==null || infixArray[i].equals(""))
 						continue;
 					// if ( is found push it into the OPERATORS STACK
@@ -214,5 +234,37 @@ public class ArithmeticOperations
 		{	
 			return result.contains("E"); 
 		}
+
+	//string compare using queue
+	public static boolean isEqual(String result1, String result2)
+		{
+			l_queue queue1 = new l_queue();
+			l_queue queue2 = new l_queue();
+			
+			//split the string into array of characters
+			char[] array1 = result1.toCharArray();
+			char[] array2 = result2.toCharArray();
+
+			//add the characters to the queue
+			for(int i = 0; i < array1.length; i++)
+				{
+					queue1.enqueue((String.valueOf(array1[i])));
+				}
+			for(int i = 0; i < array2.length; i++)
+				{
+					queue2.enqueue(String.valueOf(array2[i]));
+				}
+			
+			//compare the queues
+			while(!queue1.isEmpty() && !queue2.isEmpty())
+				{
+					if(!queue1.dequeue().equals(queue2.dequeue()))
+						return false;
+				}
+			return true;
+		}
+	
 		
 }
+
+

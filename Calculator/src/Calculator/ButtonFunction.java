@@ -91,7 +91,13 @@ public class ButtonFunction
 	// NUMBER BUTTON + DECIMAL POINT, OPERANDS BUTTONS
 	public static void operandButton()
 		{
-			Calculator.elements += Calculator.buttonLabel;// adding the button label to the elements(infix) string								
+			//for pi
+			if (Calculator.buttonLabel=="π"){
+				Calculator.elements += "3.14";
+			}
+			else{
+			Calculator.elements += Calculator.buttonLabel;// adding the button label to the elements(infix) string			
+			}					
 			Calculator.infixArray[Calculator.infixArrayCount] = Calculator.elements;// adding the elements string to the infix array																
 			// the pressed DIGIT is added at the end (append) to the ELEMENTS string
 			// the new String is added into an array
@@ -119,7 +125,9 @@ public class ButtonFunction
 	public static void memoryStore()
 		{	// Deleting from the TEXTFIELD the label of the button MS
 			String theText = Calculator.textField.getText();
-			Calculator.textField.setText(theText.substring(0, theText.length() - 2));
+			//print theText
+			System.out.println(theText);
+			Calculator.textField.setText(theText.substring(0, theText.length() - 2));//when we press button "9MS"
 			
 			//System.out.println(theText.substring(0, theText.length() - 2));// test only - CONSOLE READING
 			if(Calculator.infixArrayCount==0 && Calculator.MS.length()==0 && Calculator.infixArray[Calculator.infixArrayCount]!=null) 
@@ -194,7 +202,8 @@ public class ButtonFunction
 	
 	// EQUAL BUTTON
 	public static void equal()
-		{
+	
+	{
 			if(Calculator.infixArray[0]==null)
 				{ 		// if the user inserts a digit, will overwrite the 0
 						Calculator.infixArray[0]="0";
@@ -272,7 +281,7 @@ public class ButtonFunction
 					// clear the text field if the error pops up
 					ButtonFunction.clear();
 				}
-			// pressing equal with no operands or operators inserted
+			//pressing equal with no operands or operators inserted
 			catch(StringIndexOutOfBoundsException pressingEqualWithNoOP)
 				{
 					Calculator.history.setText(Calculator.textField.getText() +  "No Operators/Operands found!" + "\n\n"+ Calculator.history.getText());
@@ -304,4 +313,13 @@ public class ButtonFunction
 					System.out.println("Decimal point ignored"); // TEST - CONSOLE READING
 				}
 		}
+	//for pi
+	public static void pi()
+		{
+			Calculator.textField.setText("3.14");
+			Calculator.infixArray[Calculator.infixArrayCount] = "3.14";
+			Calculator.infixArrayCount++;
+		}
+
+	
 }
