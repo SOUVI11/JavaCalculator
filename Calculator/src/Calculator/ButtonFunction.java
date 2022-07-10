@@ -4,6 +4,7 @@ import java.util.EmptyStackException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+
 //import Calculator.Calculator;
 
 //import Calculator.ArithmeticOperations;
@@ -257,6 +258,11 @@ public class ButtonFunction
 							Calculator.infixArrayCount = 0;
 							Calculator.infixArray[Calculator.infixArrayCount] = total;
 						}
+					clear();
+					//add total to infix array
+					Calculator.infixArray[Calculator.infixArrayCount] = total;
+					//add total to text field
+					Calculator.textField.setText(Calculator.textField.getText() + total);
 				}
 			
 			// INVALID INPUT

@@ -12,6 +12,7 @@ public class l_stack {
 
     public static node top = null;
     public static node bottom = null;
+    
 
     void push(String data) {
         if (bottom == null) {

@@ -2,6 +2,9 @@ package Calculator;
 import java.util.EmptyStackException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+//import java.util.Stack;
+
+
 
 public class ArithmeticOperations
 {
@@ -9,6 +12,7 @@ public class ArithmeticOperations
 	public static String result(String postfixArray[], int postfixArrayCount) // returning the final result
 		{
 			l_stack resultStack =  new l_stack(); // the stack for the operands
+			//Stack<String> resultStack = new Stack<>(); // the stack for the operands
 			
 			for(int i = 0; i < postfixArrayCount; i++) // looping through the postFix array
 				{
@@ -136,6 +140,12 @@ public class ArithmeticOperations
 									ButtonFunction.clear();
 								}
 						}
+
+						/*else if (!postfix.isEmpty()) {// for exponential double
+							if(thePriority(infixArray[i]) == 4 && thePriority(postfix.peek()) == 4)
+							// handling
+								postfix.push(infixArray[i]);
+							}*/
 					// if is an operator
 					else if(isOperator(infixArray[i]))
 						{
@@ -164,6 +174,7 @@ public class ArithmeticOperations
 								postfixArray[countPostFix] = infixArray[i];
 								countPostFix++;
 							}
+						
 					}
 				// the rest of the operators will be popped, if there are no more elements into the INFIX array
 				while(!postfix.isEmpty())
@@ -173,12 +184,13 @@ public class ArithmeticOperations
 					}
 
 				//print postfix array
-				System.out.println();
+				System.out.println("*************************************");
 				for(int i = 0; i < countPostFix; i++)
 					{
-						System.out.print(postfixArray[i] + " ");
+						if (postfixArray[i] != null)
+							System.out.print(postfixArray[i] + " ");
 					}
-					System.out.println();
+				System.out.println("*****************************************");
 				return countPostFix;
 			} // end
 	
