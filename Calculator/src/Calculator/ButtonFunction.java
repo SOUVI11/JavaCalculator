@@ -3,6 +3,7 @@ package Calculator;
 import java.util.EmptyStackException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.lang.String;
 //import Calculator.Calculator;
 
 //import Calculator.ArithmeticOperations;
@@ -286,19 +287,34 @@ public class ButtonFunction
 			//pressing equal with no operands or operators inserted
 			catch(StringIndexOutOfBoundsException pressingEqualWithNoOP)
 				{
-					// Calculator.history.setText(Calculator.textField.getText() +  "No Operators/Operands found!" + "\n\n"+ Calculator.history.getText());
-					// Calculator.textField.setText("Invalid input");
-					// JOptionPane.showMessageDialog(new JFrame(), "Invalid input!", "Error", JOptionPane.ERROR_MESSAGE);
+					if (earlier.charAt(earlier.length()-2)=='!'){
+						clear();
+						// add the result to the infix array
+						Calculator.elements = total;
+						Calculator.infixArray[0] = total;
+						// add the result to the text field
+						Calculator.history.setText(earlier +  total + "\n\n"+ Calculator.history.getText());
+
+
+					}
+					else{
+					Calculator.history.setText(Calculator.textField.getText() +  "No Operators/Operands found!" + "\n\n"+ Calculator.history.getText());
+					Calculator.textField.setText("Invalid input");
+					JOptionPane.showMessageDialog(new JFrame(), "Invalid input!", "Error", JOptionPane.ERROR_MESSAGE);
 					// clear the text field if the error pops up
 					ButtonFunction.clear();
-					Calculator.history.setText(earlier +  total + "\n\n"+ Calculator.history.getText());
+					clear();
+
+					}
+				
+
 				}
-				ButtonFunction.clear();
+				
 				clear();
-				// add the result to the infix array
+				// // add the result to the infix array
 				Calculator.elements = total;
-				Calculator.infixArray[Calculator.infixArrayCount] = total;
-				// add the result to the text field
+				Calculator.infixArray[0] = total;
+				// // add the result to the text field
 				Calculator.textField.setText(total);
 		}
 

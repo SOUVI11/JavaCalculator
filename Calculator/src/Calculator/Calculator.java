@@ -84,7 +84,7 @@ public class Calculator extends JFrame {
 		// space = new JPanel();
 
 		//pi button
-		button = new JButton("π"); // pi button
+		button = new JButton("\u03c0"); // pi button
 		button.setPreferredSize(new Dimension(100, 100)); // set the size of the button
 		button.setBackground(Color.darkGray); // set the background color to dark gray
 		button.setForeground(Color.white); // set the font color to white
@@ -411,7 +411,7 @@ public class Calculator extends JFrame {
 			else if (buttonLabel.equals("\u2212"))
 				ButtonFunction.negativeSign();
 				//button label for pi
-			else if (buttonLabel.equals("π"))
+			else if (buttonLabel.equals("\u03c0"))
 				ButtonFunction.operandButton();
 			// end NUMBERS
 
