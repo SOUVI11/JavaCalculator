@@ -37,7 +37,6 @@ public class Calculator extends JFrame {
 	private JPanel memoryButtons; // for the memory buttons
 	private JPanel allButtons; // add all buttons together
 	private JPanel bigPanel; // the big panel where all the panels goes into
-	private JPanel space; // panel used for spaces
 	private JPanel historyPanel; // the panel for the text area and history label
 
 	// listeners

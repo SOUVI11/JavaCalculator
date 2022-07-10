@@ -199,11 +199,13 @@ public class ButtonFunction
 						Calculator.textField.setText(Calculator.textField.getText() + Calculator.MS);
 					}
 		} // end MEMORY RECALL
-	
+		
 	// EQUAL BUTTON
+	public static String total;
+	public static String earlier;
 	public static void equal()
-	
-	{
+		{
+			earlier=Calculator.textField.getText();
 			if(Calculator.infixArray[0]==null)
 				{ 		// if the user inserts a digit, will overwrite the 0
 						Calculator.infixArray[0]="0";
@@ -212,12 +214,12 @@ public class ButtonFunction
 						// previous index.
 						Calculator.textField.setText("0" + Calculator.textField.getText());
 				}
-		
+				
 			// getting the postfixArray
 			Calculator.postfixArrayCount = ArithmeticOperations.postfixStack(Calculator.postfixArray, Calculator.infixArray, Calculator.infixArrayCount);
 			try 
 				{	// TOTAL is the result of the calculation
-					String total = ArithmeticOperations.result(Calculator.postfixArray, Calculator.postfixArrayCount);
+					total = ArithmeticOperations.result(Calculator.postfixArray, Calculator.postfixArrayCount);
 					
 					// checking if the numbers is a DOUBLE
 					if(ArithmeticOperations.theNumberIsADouble(total))
@@ -284,13 +286,23 @@ public class ButtonFunction
 			//pressing equal with no operands or operators inserted
 			catch(StringIndexOutOfBoundsException pressingEqualWithNoOP)
 				{
-					Calculator.history.setText(Calculator.textField.getText() +  "No Operators/Operands found!" + "\n\n"+ Calculator.history.getText());
-					Calculator.textField.setText("Invalid input");
-					JOptionPane.showMessageDialog(new JFrame(), "Invalid input!", "Error", JOptionPane.ERROR_MESSAGE);
+					// Calculator.history.setText(Calculator.textField.getText() +  "No Operators/Operands found!" + "\n\n"+ Calculator.history.getText());
+					// Calculator.textField.setText("Invalid input");
+					// JOptionPane.showMessageDialog(new JFrame(), "Invalid input!", "Error", JOptionPane.ERROR_MESSAGE);
 					// clear the text field if the error pops up
 					ButtonFunction.clear();
+					Calculator.history.setText(earlier +  total + "\n\n"+ Calculator.history.getText());
 				}
+				ButtonFunction.clear();
+				clear();
+				// add the result to the infix array
+				Calculator.elements = total;
+				Calculator.infixArray[Calculator.infixArrayCount] = total;
+				// add the result to the text field
+				Calculator.textField.setText(total);
 		}
+
+
 	
 	// MULTIPLE DECIMAL POINTS
 	public static void checkDecimalPoint()

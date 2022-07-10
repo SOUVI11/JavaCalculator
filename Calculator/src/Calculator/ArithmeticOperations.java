@@ -3,8 +3,6 @@ import java.util.EmptyStackException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
-//import java.util.Stack;
-
 
 
 public class ArithmeticOperations
@@ -119,14 +117,19 @@ public class ArithmeticOperations
 			int countPostFix = 0; // postfixArray count initialized 
 			for(int i = 0; i < infixArrayCount; i++)
 				{
+					if(infixArray[i]==null || infixArray[i].equals(""))
+						continue;
+					//null exception
 					if(infixArray[i].equals("!")){
 						int number = Integer.parseInt(infixArray[i-1]);
 						int fact = factorial(number);
 						infixArray[i-1] = fact+"";
-						infixArray[i] = "";
+						infixArray[i]="";
 					}
 					
 				}
+			
+			
 			for(int i = 0; i <= infixArrayCount; i++) // looping through infix array
 				{					
 					if(infixArray[i]==null || infixArray[i].equals(""))
