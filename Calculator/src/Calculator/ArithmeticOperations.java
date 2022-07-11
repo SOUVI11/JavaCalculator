@@ -2,8 +2,6 @@ package Calculator;
 import java.util.EmptyStackException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import java.util.ArrayList;
-
 
 public class ArithmeticOperations
 {

@@ -48,16 +48,6 @@ public class l_queue{
         return false;
 
     }
-    void print() {
-        node current = front;
-        System.out.println("[front]");
-        while (current != null) {
-            System.out.print(current.data + "\n");
-            current = current.next;
-        }
-        System.out.println("[rear]");
-        System.out.println();
-    }
 
 
 
