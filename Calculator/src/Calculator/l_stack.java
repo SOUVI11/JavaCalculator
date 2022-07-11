@@ -10,8 +10,8 @@ public class l_stack {
         }
     }
 
-    public static node top = null;
-    public static node bottom = null;
+    public node top = null;
+    public node bottom = null;
     
 
     void push(String data) {

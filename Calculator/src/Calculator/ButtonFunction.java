@@ -94,7 +94,7 @@ public class ButtonFunction
 		{
 			//for pi
 			if (Calculator.buttonLabel=="π"){
-				Calculator.elements += "3.14";
+				Calculator.elements += "3.1415926";
 			}
 			else{
 			Calculator.elements += Calculator.buttonLabel;// adding the button label to the elements(infix) string			
@@ -202,11 +202,12 @@ public class ButtonFunction
 		} // end MEMORY RECALL
 		
 	// EQUAL BUTTON
-	public static String total;
-	public static String earlier;
-	public static void equal()
+	public static String total;// total is the result of the calculation
+	public static String earlier;// earlier is the infix expression before the calculation
+		//equal
+		public static void equal()
 		{
-			earlier=Calculator.textField.getText();
+			earlier=Calculator.textField.getText();// get the infix expression before the calculation
 			if(Calculator.infixArray[0]==null)
 				{ 		// if the user inserts a digit, will overwrite the 0
 						Calculator.infixArray[0]="0";
@@ -217,11 +218,11 @@ public class ButtonFunction
 				}
 				
 			// getting the postfixArray
-			Calculator.postfixArrayCount = ArithmeticOperations.postfixStack(Calculator.postfixArray, Calculator.infixArray, Calculator.infixArrayCount);
+			Calculator.postfixArrayCount = ArithmeticOperations.postfixStack(Calculator.postfixArray, Calculator.infixArray, Calculator.infixArrayCount);//infix to postfix
 			try 
 				{	// TOTAL is the result of the calculation
-					total = ArithmeticOperations.result(Calculator.postfixArray, Calculator.postfixArrayCount);
-					
+					total = ArithmeticOperations.result(Calculator.postfixArray, Calculator.postfixArrayCount);//postfix to result
+					//to differentiate result with and without decimal points
 					// checking if the numbers is a DOUBLE
 					if(ArithmeticOperations.theNumberIsADouble(total))
 						{	// if the TOTAL has the decimal digits > then 0, we display the TOTAL with the decimal points.
@@ -237,7 +238,7 @@ public class ButtonFunction
 							Calculator.infixArray[Calculator.infixArrayCount] = total;
 							
 							// the division by 0
-							try { // if the result is INFINITY or NAN, handle the division by 0 in the exception class
+							try { // if the result is INFINITY or NAN(not a number), handle the division by 0 in the exception class
 									if(Double.parseDouble(Calculator.infixArray[0])==Double.POSITIVE_INFINITY || Double.parseDouble(Calculator.infixArray[0])==Double.NEGATIVE_INFINITY
 											||Double.isNaN(Double.parseDouble(Calculator.infixArray[0])) )	
 										throw new CalculatorExceptions();
@@ -276,7 +277,8 @@ public class ButtonFunction
 				}
 			
 			// INVALID INPUT
-			catch(EmptyStackException tooManySymbols)
+			catch(EmptyStackException tooManySymbols)// if the user inserts too many symbols, the calculator will display an error message
+
 				{	// the postfixt method can not handle the input
 					Calculator.history.setText(Calculator.textField.getText() +  "Invalid Input" + "\n\n"+ Calculator.history.getText());
 					Calculator.textField.setText("Invalid input");
@@ -318,14 +320,12 @@ public class ButtonFunction
 				Calculator.textField.setText(total);
 		}
 
-
-	
 	// MULTIPLE DECIMAL POINTS
 	public static void checkDecimalPoint()
 		{	
 			if(Calculator.infixArray[Calculator.infixArrayCount]!=null) // if the DECIMAL POINT IS NOT THE FIRST CHARACTER 
 				{
-					if(Calculator.infixArray[Calculator.infixArrayCount].contains("."))
+					if(Calculator.infixArray[Calculator.infixArrayCount].contains("."))//if the current element already contains ., it cannot have again .
 						{	// if there is already a decimal point in the number, ignore it
 							String theText = Calculator.textField.getText();
 							Calculator.textField.setText(theText.substring(0, theText.length()-1));
@@ -341,13 +341,4 @@ public class ButtonFunction
 					System.out.println("Decimal point ignored"); // TEST - CONSOLE READING
 				}
 		}
-	//for pi
-	public static void pi()
-		{
-			Calculator.textField.setText("3.14");
-			Calculator.infixArray[Calculator.infixArrayCount] = "3.14";
-			Calculator.infixArrayCount++;
-		}
-
-	
-}
+}// end of class ButtonFunction

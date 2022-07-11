@@ -162,11 +162,6 @@ public class ArithmeticOperations
 								}
 						}
 
-						/*else if (!postfix.isEmpty()) {// for exponential double
-							if(thePriority(infixArray[i]) == 4 && thePriority(postfix.peek()) == 4)
-							// handling
-								postfix.push(infixArray[i]);
-							}*/
 					// if is an operator
 					else if(isOperator(infixArray[i]))
 						{
@@ -237,35 +232,33 @@ public class ArithmeticOperations
 		}
 
 	//string compare using queue
-	public static boolean isEqual(String result1, String result2)
-		{
+		public static boolean isequal(String result1, String result2){
 			l_queue queue1 = new l_queue();
 			l_queue queue2 = new l_queue();
 			
 			//split the string into array of characters
 			char[] array1 = result1.toCharArray();
 			char[] array2 = result2.toCharArray();
-
+			
 			//add the characters to the queue
 			for(int i = 0; i < array1.length; i++)
 				{
-					queue1.enqueue((String.valueOf(array1[i])));
+					queue1.enqueue((int)array1[i]);
 				}
+		
 			for(int i = 0; i < array2.length; i++)
 				{
-					queue2.enqueue(String.valueOf(array2[i]));
+					queue2.enqueue((int)array2[i]);//to convert char to ascii
 				}
-			
+		
 			//compare the queues
 			while(!queue1.isEmpty() && !queue2.isEmpty())
 				{
-					if(!queue1.dequeue().equals(queue2.dequeue()))
-						return false;
+					if(!(queue1.dequeue()==(queue2.dequeue())))
+						 return false;
 				}
 			return true;
-		}
-	
-		
-}
+	}
+}// end class
 
 

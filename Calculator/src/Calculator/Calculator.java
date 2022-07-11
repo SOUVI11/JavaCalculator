@@ -52,7 +52,7 @@ public class Calculator extends JFrame {
 	protected static int postfixArrayCount; // the count of the postfixStackArray
 
 	// button listener
-	private ButtonListener readLabel = new ButtonListener();
+	private ButtonListener readLabel = new ButtonListener();// button listener for the buttons 
 
 	// memoryButtons variables
 	protected static String MS = ""; // where we store in memory
@@ -78,11 +78,6 @@ public class Calculator extends JFrame {
 		mainButtons = new JPanel(); // the panel for all the buttons
 		mainButtons.setLayout(new GridLayout(6, 4, 3, 3)); // 6 rows, 4 columns, 3 space between buttons
 
-		// // FIRST ROW
-		// space = new JPanel(); // added spaces instead of button
-		// mainButtons.add(space);
-		// space = new JPanel();
-
 		//pi button
 		button = new JButton("\u03c0"); // pi button
 		button.setPreferredSize(new Dimension(100, 100)); // set the size of the button
@@ -91,8 +86,6 @@ public class Calculator extends JFrame {
 		button.setFont(new Font("Arial", Font.BOLD, 15)); // change the font and size of the button
 		button.addActionListener(readLabel); // add the listener to the button
 		mainButtons.add(button); // add the button to the panel
-
-		
 
 		// exponential button-->in progress
 		button = new JButton("^"); // the button for the exponential function
@@ -323,8 +316,6 @@ public class Calculator extends JFrame {
 		allButtons.add(mainButtons, BorderLayout.NORTH);
 		allButtons.add(memoryButtons, BorderLayout.SOUTH);
 
-
-
 		// history screen
 		history = new JTextArea();
 		history.setPreferredSize(new Dimension(320, 410));
@@ -365,108 +356,109 @@ public class Calculator extends JFrame {
 			// them to the text field
 			buttonLabel = readLabel.getActionCommand();
 			textField.setText(textField.getText() + buttonLabel);
+			String current=buttonLabel;// some problem with java button label string
 
 			// CLEAR button
-			if (buttonLabel.equals("C"))
+			if (ArithmeticOperations.isequal(current,"C"))
 				ButtonFunction.clear();
 
 			// BACKSPACE button
-			if (buttonLabel.equals("\u232b"))
+			if (ArithmeticOperations.isequal(current,"\u232b"))
 				ButtonFunction.backspace();
 
 			// NUMBER buttons
-			if (buttonLabel.equals("0")) // if the condition is true: the user presses a DIGIT button
+			if (ArithmeticOperations.isequal(current,"0")) // if the condition is true: the user presses a DIGIT button
+				ButtonFunction.operandButton(); // call the operandButton method to add the number to the text field and to infix array
+
+			else if (ArithmeticOperations.isequal(current,"1"))
 				ButtonFunction.operandButton();
 
-			else if (buttonLabel.equals("1"))
+			else if (ArithmeticOperations.isequal(current,"2"))
 				ButtonFunction.operandButton();
 
-			else if (buttonLabel.equals("2"))
+			else if (ArithmeticOperations.isequal(current,"3"))
 				ButtonFunction.operandButton();
 
-			else if (buttonLabel.equals("3"))
+			else if (ArithmeticOperations.isequal(current,"4"))
 				ButtonFunction.operandButton();
 
-			else if (buttonLabel.equals("4"))
+			else if (ArithmeticOperations.isequal(current,"5"))
 				ButtonFunction.operandButton();
 
-			else if (buttonLabel.equals("5"))
+			else if (ArithmeticOperations.isequal(current,"6"))
 				ButtonFunction.operandButton();
 
-			else if (buttonLabel.equals("6"))
+			else if (ArithmeticOperations.isequal(current,"7"))
 				ButtonFunction.operandButton();
 
-			else if (buttonLabel.equals("7"))
+			else if (ArithmeticOperations.isequal(current,"8"))
 				ButtonFunction.operandButton();
 
-			else if (buttonLabel.equals("8"))
-				ButtonFunction.operandButton();
-
-			else if (buttonLabel.equals("9"))
+			else if (ArithmeticOperations.isequal(current,"9"))
 				ButtonFunction.operandButton();
 			// DECIMAL POINT
-			else if (buttonLabel.equals("."))
+			else if (ArithmeticOperations.isequal(current,"."))
 				ButtonFunction.checkDecimalPoint();
 			// NEGATIVE SIGN
-			else if (buttonLabel.equals("\u2212"))
+			else if (ArithmeticOperations.isequal(current,"\u2212"))
 				ButtonFunction.negativeSign();
 				//button label for pi
-			else if (buttonLabel.equals("\u03c0"))
+			else if (ArithmeticOperations.isequal(current,"\u03c0"))
 				ButtonFunction.operandButton();
 			// end NUMBERS
 
 			// OPERATORS
 			// DIVISION button
-			if (buttonLabel.equals("/"))
-				ButtonFunction.operatorButton();
+			if (ArithmeticOperations.isequal(current,"/"))
+				ButtonFunction.operatorButton();// call the operatorButton method to add the operator to the text field and to infix array
 
 			// EXPONENTIAL button
-			else if (buttonLabel.equals("^"))
+			else if (ArithmeticOperations.isequal(current,"^"))
 				ButtonFunction.operatorButton();
 
 			// FACTORIAL button
-			else if (buttonLabel.equals("!"))
+			else if (ArithmeticOperations.isequal(current,"!"))
 				ButtonFunction.operatorButton();
 			// MULTIPLICATION button
-			else if (buttonLabel.equals("*"))
+			else if (ArithmeticOperations.isequal(current,"*"))
 				ButtonFunction.operatorButton();
 
 			// MINUS button
-			else if (buttonLabel.equals("-"))
+			else if (ArithmeticOperations.isequal(current,"-"))
 				ButtonFunction.operatorButton();
 
 			// PLUS button
-			else if (buttonLabel.equals("+"))
+			else if (ArithmeticOperations.isequal(current,"+"))
 				ButtonFunction.operatorButton();
 
 			// OPEN parentheses button
-			else if (buttonLabel.equals("("))
+			else if (ArithmeticOperations.isequal(current,"("))
 				ButtonFunction.operatorButton();
 
 			// CLOSE parentheses button
-			else if (buttonLabel.equals(")"))
+			else if (ArithmeticOperations.isequal(current,")"))
 				ButtonFunction.operatorButton();
 
 			// EQUAL button
-			else if (buttonLabel.equals("="))
+			else if (ArithmeticOperations.isequal(current,"="))
 				ButtonFunction.equal();
 
 			// MEMORY buttons
 			// MEMORY STORE BUTTON
-			if (buttonLabel.equals("MS"))
-				ButtonFunction.memoryStore();
+			if (ArithmeticOperations.isequal(current,"MS"))
+				ButtonFunction.memoryStore();// call the memoryStore method to store the value in the text field to memory
 
 			// MEMORY CLEAR BUTTON
-			if (buttonLabel.equals("MC"))
-				ButtonFunction.memoryClear();
+			if (ArithmeticOperations.isequal(current,"MC"))
+				ButtonFunction.memoryClear();// call the memoryClear method to clear the memory
 
 			// RECALL MEMORY BUTTON
-			if (buttonLabel.equals("MR"))
-				ButtonFunction.memoryRecall();
+			if (ArithmeticOperations.isequal(current,"MR"))
+				ButtonFunction.memoryRecall();// call the memoryRecall method to recall the value in memory to the text field
 
 			// FOR PROGRAMMERS USE:
 			// visualize the elements into the array - CONSOLE READING
-			System.out.println("*************************************************");
+			System.out.println("=================================================");
 			for (int i = 0; i < infixArrayCount + 1; i++) {
 				if (infixArray[i] != null)
 					System.out.println(infixArray[i] + " INFIX " + i + "\t");

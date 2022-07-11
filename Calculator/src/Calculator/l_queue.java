@@ -1,21 +1,20 @@
 package Calculator;
-
 public class l_queue{
     class node {
-        String data;
+        int data;
         node next;
 
-        node(String data) {
+        node(int data) {
             this.data = data;
             this.next = null;
         }
     }
 
-    public static node rear = null;
-    public static node front = null;
-    public static int size = 0;
+    public node rear = null;
+    public node front = null;
+    public int size = 0;
 
-    void enqueue(String el) {
+    void enqueue(int el) {
         node temp = new node(el);
         if (front == null) {
             rear = temp;
@@ -26,11 +25,25 @@ public class l_queue{
         }
         size++;
     }
-    String dequeue() {
-        if (front == null) {
-            return null;
+
+    void print() {
+        node current = front;
+        System.out.println("[front]");
+        while (current != null) {
+            System.out.print(current.data + "\n");
+            current = current.next;
         }
-       String temp=front.data;
+        System.out.println("[rear]");
+        System.out.println();
+    }
+
+    int dequeue() {
+
+
+        if (front == null) {
+            return -1;
+        }
+        int temp=front.data;
         if (rear == front) {
             front = null;
             rear = null;
@@ -39,17 +52,10 @@ public class l_queue{
         }
         size--;
         return temp;
-    } 
-    //isempty
-    boolean isEmpty(){
-        if (front==null&rear==null){
-            return true;
-        }
-        return false;
 
     }
-
-
-
-
+    //isEmpty
+    boolean isEmpty() {
+        return front == null;
+    }
 }
