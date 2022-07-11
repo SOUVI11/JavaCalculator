@@ -68,7 +68,7 @@ public class Calculator extends JFrame {
 		textField.setEditable(false); // no input from the keyboard - input just from the buttons
 		textField.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
 		//font color white
-		textField.setForeground(Color.white); // set the font color white (default is black)
+		textField.setForeground(Color.cyan); // set the font color white (default is black)
 		textField.setFont(new Font("Arial", Font.BOLD, 15)); // change the font and size of the textfield
 		forText.setLayout(new GridLayout(1, 1));
 		forText.add(textField); // adding the text field to the panel
@@ -87,7 +87,7 @@ public class Calculator extends JFrame {
 		button = new JButton("\u03c0"); // pi button
 		button.setPreferredSize(new Dimension(100, 100)); // set the size of the button
 		button.setBackground(Color.darkGray); // set the background color to dark gray
-		button.setForeground(Color.white); // set the font color to white
+		button.setForeground(Color.cyan); // set the font color to white
 		button.setFont(new Font("Arial", Font.BOLD, 15)); // change the font and size of the button
 		button.addActionListener(readLabel); // add the listener to the button
 		mainButtons.add(button); // add the button to the panel
@@ -99,17 +99,17 @@ public class Calculator extends JFrame {
 		button.addActionListener(readLabel);
 		mainButtons.add(button);
 		button.setToolTipText("Exponential"); // tooltip for the button
-		button.setFont(button.getFont().deriveFont(15f));
+		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
-		button.setForeground(Color.white); // set the font color white (default is black)
+		button.setForeground(Color.cyan); // set the font color white (default is black)
 
         button = new JButton("!");	// the button for the factorial
 		button.addActionListener(readLabel);
 		mainButtons.add(button);		
 		button.setToolTipText("Factorial");	
-		button.setFont(button.getFont().deriveFont(15f));
+		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
-		button.setForeground(Color.white); // set the font color white (default is black)
+		button.setForeground(Color.cyan); // set the font color white (default is black)
 
 
 
@@ -118,9 +118,9 @@ public class Calculator extends JFrame {
 		button.addActionListener(readLabel);
 		mainButtons.add(button);
 		button.setToolTipText("Backspace");
-		button.setFont(button.getFont().deriveFont(15f));
+		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
-		button.setForeground(Color.white); // set the font color white (default is black)
+		button.setForeground(Color.cyan); // set the font color white (default is black)
 		// END FIRST ROW
 
 		// adding the main buttons
@@ -132,7 +132,7 @@ public class Calculator extends JFrame {
 		button.setToolTipText("Clear");
 		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
-		button.setForeground(Color.white); // set the font color white (default is black)
+		button.setForeground(Color.cyan); // set the font color white (default is black)
 		// parentheses button
 		button = new JButton("(");
 		button.addActionListener(readLabel);
@@ -140,7 +140,7 @@ public class Calculator extends JFrame {
 		mainButtons.add(button);
 		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
-		button.setForeground(Color.white); // set the font color white (default is black)
+		button.setForeground(Color.cyan); // set the font color white (default is black)
 		// modular button
 		button = new JButton(")");
 		button.addActionListener(readLabel);
@@ -148,7 +148,7 @@ public class Calculator extends JFrame {
 		button.setToolTipText("Close Parenthese");
 		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
-		button.setForeground(Color.white); // set the font color white (default is black)
+		button.setForeground(Color.cyan); // set the font color white (default is black)
 		// division button
 		button = new JButton("/");
 		button.addActionListener(readLabel);
@@ -156,11 +156,11 @@ public class Calculator extends JFrame {
 		button.setToolTipText("Division");
 		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
-		button.setForeground(Color.white); // set the font color white (default is black)
+		button.setForeground(Color.cyan); // set the font color white (default is black)
 		// 7 button
 		button = new JButton("7");
 		button.addActionListener(readLabel);
-		button.setBackground(Color.white);
+		button.setBackground(Color.cyan);
 		mainButtons.add(button);
 		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
@@ -168,7 +168,7 @@ public class Calculator extends JFrame {
 		// 8 button
 		button = new JButton("8");
 		button.addActionListener(readLabel);
-		button.setBackground(Color.white);
+		button.setBackground(Color.cyan);
 		mainButtons.add(button);
 		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
@@ -176,7 +176,7 @@ public class Calculator extends JFrame {
 		// 9 button
 		button = new JButton("9");
 		button.addActionListener(readLabel);
-		button.setBackground(Color.white);
+		button.setBackground(Color.cyan);
 		mainButtons.add(button);
 		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
@@ -188,11 +188,11 @@ public class Calculator extends JFrame {
 		button.setToolTipText("Multiplication");
 		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
-		button.setForeground(Color.white); // set the font color white (default is black)
+		button.setForeground(Color.cyan); // set the font color white (default is black)
 		// 4 button
 		button = new JButton("4");
 		button.addActionListener(readLabel);
-		button.setBackground(Color.white);
+		button.setBackground(Color.cyan);
 		mainButtons.add(button);
 		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
@@ -200,7 +200,7 @@ public class Calculator extends JFrame {
 		// 5 button
 		button = new JButton("5");
 		button.addActionListener(readLabel);
-		button.setBackground(Color.white);
+		button.setBackground(Color.cyan);
 		mainButtons.add(button);
 		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
@@ -208,7 +208,7 @@ public class Calculator extends JFrame {
 		// 6 button
 		button = new JButton("6");
 		button.addActionListener(readLabel);
-		button.setBackground(Color.white);
+		button.setBackground(Color.cyan);
 		mainButtons.add(button);
 		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
@@ -220,11 +220,11 @@ public class Calculator extends JFrame {
 		button.setToolTipText("Subtraction");
 		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
-		button.setForeground(Color.white); // set the font color white (default is black)
+		button.setForeground(Color.cyan); // set the font color white (default is black)
 		// 1 button
 		button = new JButton("1");
 		button.addActionListener(readLabel);
-		button.setBackground(Color.white);
+		button.setBackground(Color.cyan);
 		mainButtons.add(button);
 		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
@@ -232,7 +232,7 @@ public class Calculator extends JFrame {
 		// 2 button
 		button = new JButton("2");
 		button.addActionListener(readLabel);
-		button.setBackground(Color.white);
+		button.setBackground(Color.cyan);
 		mainButtons.add(button);
 		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
@@ -240,7 +240,7 @@ public class Calculator extends JFrame {
 		// 3 button
 		button = new JButton("3");
 		button.addActionListener(readLabel);
-		button.setBackground(Color.white);
+		button.setBackground(Color.cyan);
 		mainButtons.add(button);
 		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
@@ -252,7 +252,7 @@ public class Calculator extends JFrame {
 		button.setToolTipText("Addition");
 		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
-		button.setForeground(Color.white); // set the font color white (default is black)
+		button.setForeground(Color.cyan); // set the font color white (default is black)
 		// negative button
 		button = new JButton("\u2212");
 		button.addActionListener(readLabel);
@@ -265,7 +265,7 @@ public class Calculator extends JFrame {
 		button = new JButton("0");
 		button.addActionListener(readLabel);
 		mainButtons.add(button);
-		button.setBackground(Color.white);
+		button.setBackground(Color.cyan);
 		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
 		button.setForeground(Color.white); // set the font color white (default is black)
@@ -285,7 +285,7 @@ public class Calculator extends JFrame {
 		button.setToolTipText("Equal");
 		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.black); // set the background white (default is grey from not being editable)
-		button.setForeground(Color.white); // set the font color white (default is black)
+		button.setForeground(Color.cyan); // set the font color white (default is black)
 		// set the dimensions to the button's panel
 		mainButtons.setPreferredSize(new Dimension(300, 300));
 
@@ -296,26 +296,26 @@ public class Calculator extends JFrame {
 		button = new JButton("MS"); // memory 1
 		button.addActionListener(readLabel);
 		button.setToolTipText("Store in memory");
-		button.setFont(button.getFont().deriveFont(15f));
+		button.setFont(button.getFont().deriveFont(20f));
 		memoryButtons.add(button); // adding the button to the panel
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
-		button.setForeground(Color.white); // set the font color white (default is black)
+		button.setForeground(Color.cyan); // set the font color white (default is black)
 
 		button = new JButton("MR"); // memory 2
 		button.addActionListener(readLabel);
 		memoryButtons.add(button); // adding the button to the panel
 		button.setToolTipText("Memory Recall");
-		button.setFont(button.getFont().deriveFont(15f));
+		button.setFont(button.getFont().deriveFont(20f));
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
-		button.setForeground(Color.white); // set the font color white (default is black)
+		button.setForeground(Color.cyan); // set the font color white (default is black)
 
 		button = new JButton("MC"); // memory 1
 		button.addActionListener(readLabel);
 		button.setToolTipText("Clear Memory");
-		button.setFont(button.getFont().deriveFont(15f));
+		button.setFont(button.getFont().deriveFont(20f));
 		memoryButtons.add(button); // adding the button to the panel
 		button.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
-		button.setForeground(Color.white); // set the font color white (default is black)
+		button.setForeground(Color.cyan); // set the font color white (default is black)
 
 		// the panel for all panels with buttons
 		allButtons = new JPanel();
@@ -330,10 +330,10 @@ public class Calculator extends JFrame {
 		history.setPreferredSize(new Dimension(320, 410));
 		history.setEditable(false); // no input from the user, just display the history
 		history.setFont(new Font("Arial", Font.BOLD, 16));
-		history.setBackground(Color.white);
+		history.setBackground(Color.cyan);
 		historyLabel = new JLabel("HISTORY:");
 		history.setBackground(Color.darkGray); // set the background white (default is grey from not being editable)
-		history.setForeground(Color.white); // set the font color white (default is black)
+		history.setForeground(Color.cyan); // set the font color white (default is black)
 		//hisory
 
 		// panel for the history text area and history label
@@ -471,7 +471,6 @@ public class Calculator extends JFrame {
 				if (infixArray[i] != null)
 					System.out.println(infixArray[i] + " INFIX " + i + "\t");
 			}
-
 			System.out.println("=================================================");
 		}
 	} // end of LISTENTERS
