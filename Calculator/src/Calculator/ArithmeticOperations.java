@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 public class ArithmeticOperations
 {
 	// METHOD from POSTFIX to RESULT (final result)
+	//arseven
 	public static String result(String postfixArray[], int postfixArrayCount) // returning the final result
 		{
 			l_stack resultStack =  new l_stack(); // the stack for the operands
@@ -77,6 +78,8 @@ public class ArithmeticOperations
 				 default: return false;
 			}
 	} // end
+
+	//vishnu
 	
 	///////////////////////////////////
 	// OPERATORS PRIORITY
@@ -95,7 +98,7 @@ public class ArithmeticOperations
 			
 			return priority;
 		} // end
-
+		//RECURSION
 	///////////////////////////////////
 	public static int factorial(int number)
 		{
@@ -201,12 +204,14 @@ public class ArithmeticOperations
 
 				//print postfix array
 				System.out.println("*************************************");
+				System.out.print("Postfix array: ");
 				for(int i = 0; i < countPostFix; i++)
 					{
 						if (postfixArray[i] != null)
 							System.out.print(postfixArray[i] + " ");
 					}
-				System.out.println("*****************************************");
+				
+				System.out.println("\n*****************************************");
 				return countPostFix;
 			} // end
 	
@@ -232,6 +237,7 @@ public class ArithmeticOperations
 		}
 
 	//string compare using queue
+	//arseven
 		public static boolean isequal(String result1, String result2){
 			l_queue queue1 = new l_queue();
 			l_queue queue2 = new l_queue();

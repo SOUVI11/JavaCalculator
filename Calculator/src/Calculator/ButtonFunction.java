@@ -175,7 +175,7 @@ public class ButtonFunction
 					clear();
 				} // end MEMORY CLEAR
 		}
-	
+	//arseven
 	// MEMORY RECALL BUTTON
 	public static void memoryRecall()
 		{	
